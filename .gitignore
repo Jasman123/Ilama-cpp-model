@@ -9,8 +9,4 @@ venv/
 # Environment variables
 .env
 
-# Vector DB
-chroma_db/
-
-# Documents (PDFs)
-#documents/
+/models
