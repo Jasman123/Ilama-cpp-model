@@ -1,0 +1,37 @@
+GGUF Model File
+      │
+      ▼
+ llama-server  ←── your NVIDIA GPU (CUDA)
+ (port 8080)
+      │
+      ├── GET  /health          ← "is the server alive?"
+      ├── POST /completion      ← raw text completion
+      ├── POST /chat/completions ← OpenAI-compatible chat
+      ├── GET  /v1/models       ← list loaded models
+      └── GET  /metrics         ← performance stats
+      │
+      ▼
+ Python / FastAPI / Any HTTP Client
+      │
+      ▼
+   Docker (production)
+
+
+   # Check if it was installed alongside llama-cpp-python
+where llama-server
+# Or look in your Python environment's Scripts folder
+
+
+# The most basic start command
+# --model        : path to your GGUF file
+# --port         : which port to listen on (8080 is convention)
+# --n-gpu-layers : how many layers to put on the GPU (-1 = all layers = full GPU)
+
+llama-server.exe \
+  --model ./models/your-model.gguf \
+  --port 8080 \
+  --n-gpu-layers -1
+
+
+
+llama server listening at http://127.0.0.1:8080
