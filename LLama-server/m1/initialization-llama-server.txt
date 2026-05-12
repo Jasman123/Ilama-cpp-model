@@ -35,3 +35,23 @@ llama-server.exe \
 
 
 llama server listening at http://127.0.0.1:8080
+
+
+
+# Make sure you're in the right folder with venv active
+cd ~/llama-cpp-model
+source .venv/bin/activate
+
+# Start llama-server with settings tuned for your GPU
+llama-server \
+  --model ./models/qwen3-1.7b.gguf \
+  --port 8080 \
+  --n-gpu-layers -1 \
+  --ctx-size 8192 \
+  --batch-size 1024 \
+  --threads 4 \
+  --host 127.0.0.1
+
+
+
+  
